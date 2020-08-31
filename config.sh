@@ -42,7 +42,7 @@ printf "%s======================================================================
 
 printf "%s\n# Copying dotfiles...\n%s" $yellow $end
 
-dotfiles=( gitconfig )
+dotfiles=( gitconfig bash_profile )
 for file in "${dotfiles[@]}"
 do
   printf "%s  - .$file%s"
