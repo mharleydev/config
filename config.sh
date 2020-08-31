@@ -37,6 +37,26 @@ printf "%s# Loading mharleydev/config\n%s" $yellow $end
 printf "%s======================================================================\n%s" $yellow $end
 
 #
+# Copying dotfiles
+#
+
+printf "%s\n# Copying dotfiles...\n%s" $yellow $end
+
+dotfiles=( gitconfig )
+for file in "${dotfiles[@]}"
+do
+  printf "%s  - .$file%s"
+  if [[ ! -e "$HOME/.$file" ]]; then
+    {
+      curl https://raw.githubusercontent.com/mharleydev/config/master/.$file > $HOME/.$file
+    } &> /dev/null
+    printf "%s - Success!\n%s" $green $end
+  else
+    printf "%s - Already present\n%s" $cyan $end
+  fi
+done
+
+#
 # Creating directories
 #
 

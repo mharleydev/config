@@ -1,3 +1,11 @@
-# config
+# Config
 
-This is a personal checklist for rebuilding my Mac. I wipe and reload my Mac at least once a year and I follow this checklist to get back to the desired configuration state.
+__Config__ This is a personal checklist for rebuilding my Mac.
+
+## Shell script
+
+Enter the following in Terminal
+
+```bash
+curl https://raw.githubusercontent.com/mharleydev/config/master/config.sh > ~/Downloads/config.sh && bash ~/Downloads/config.sh
+```
