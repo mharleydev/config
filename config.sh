@@ -200,6 +200,15 @@ printf "%s\n# Adjusting macOS...\n%s" $yellow $end
   # Disable the annoying line marks
   defaults write com.apple.Terminal ShowLineMarks -int 0
 
+  # Set computer name (as done via System Preferences → Sharing)
+  sudo scutil --set ComputerName "0x339Gungnir"
+  sudo scutil --set HostName "0x339Gungnir"
+  sudo scutil --set LocalHostName "0x339Gungnir"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x339Gungnir"
+
+  # Set standby delay to 24 hours (default is 1 hour)
+  sudo pmset -a standbydelay 86400
+
   # Restart Finder and Dock (though many changes need a restart/relog)
   killall Finder
   killall Dock
