@@ -187,3 +187,20 @@ printf "%s\n# Adjusting macOS...\n%s" $yellow $end
 } &> /dev/null
 
 printf "%sDone!\n%s" $green $end
+
+#
+# Additional dependencies
+#
+
+printf "%s\n# Installing additional dependencies...\n%s" $yellow $end
+
+printf "%s\n  Homebrew:\n%s" $yellow $end
+
+if [[ ! -e "/usr/local/bin/brew" ]]; then
+  {
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  } &> /dev/null
+  printf "%s - Done!\n%s" $green $end
+else
+  printf "%s - Already installed\n%s" $cyan $end
+fi
