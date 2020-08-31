@@ -1,6 +1,6 @@
 # Config
 
-__Config__ This is a personal checklist for rebuilding my Mac.
+__Config__ This is a personal checklist for rebuilding my Mac. Taken from https://github.com/mdo/config. 
 
 ## Shell script
 
