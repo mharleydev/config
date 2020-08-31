@@ -87,7 +87,7 @@ printf "%s\n# Cloning repositories...\n%s" $yellow $end
 
 cd $github_dir
 
-github_repos=( mharley.dev )
+github_repos=( mharley.dev config eleventy-mharleydev)
 for repo in "${github_repos[@]}"
 do
   printf "%s  - github/$repo%s"
