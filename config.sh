@@ -29,7 +29,7 @@ end=$'\e[0m'
 #
 
 bin_dir="/usr/local/bin"
-work_dir="$HOME/work/"
+work_dir="$HOME/bridgestone/"
 github_dir="$HOME/github/"
 
 printf "%s\n======================================================================\n%s" $yellow $end
@@ -37,76 +37,27 @@ printf "%s# Loading mharleydev/config\n%s" $yellow $end
 printf "%s======================================================================\n%s" $yellow $end
 
 #
-# Copying dotfiles
-#
-
-printf "%s\n# Copying dotfiles...\n%s" $yellow $end
-
-dotfiles=( gitconfig gitignore bash_profile )
-for file in "${dotfiles[@]}"
-do
-  printf "%s  - .$file%s"
-  if [[ ! -e "$HOME/.$file" ]]; then
-    {
-      curl https://raw.githubusercontent.com/mharleydev/config/master/.$file > $HOME/.$file
-    } &> /dev/null
-    printf "%s - Success!\n%s" $green $end
-  else
-    printf "%s - Already present\n%s" $cyan $end
-  fi
-done
-
-#
-# Creating directories
-#
-
-printf "%s\n# Creating directories...\n%s" $yellow $end
-
-printf "%s  - Creating $work_dir...%s"
-if [[ ! -e "$work_dir" ]]; then
-  mkdir $work_dir
-  printf "%s - Success!\n%s" $green $end
-else
-  printf "%s - Already created\n%s" $cyan $end
-fi
-
-printf "%s  - Creating $github_dir...%s"
-if [[ ! -e "$github_dir" ]]; then
-  mkdir $github_dir
-  printf "%s - Success!\n%s" $green $end
-else
-  printf "%s - Already created\n%s" $cyan $end
-fi
-
-
-#
-# Cloning repos
-#
-
-printf "%s\n# Cloning repositories...\n%s" $yellow $end
-
-cd $github_dir
-
-github_repos=( mharley.dev config eleventy-mharleydev)
-for repo in "${github_repos[@]}"
-do
-  printf "%s  - github/$repo%s"
-  if [[ ! -e "$github_dir/$repo" ]]; then
-    {
-      git clone https://github.com/mharleydev/$repo/ $github_dir/$repo/
-    } &> /dev/null
-    printf "%s - Success!\n%s" $green $end
-  else
-    printf "%s - Already cloned\n%s" $cyan $end
-  fi
-done
-
-#
 # macOS preferences
 #
 
 printf "%s\n# Adjusting macOS...\n%s" $yellow $end
 {
+  # Set computer name (as done via System Preferences → Sharing)
+  sudo scutil --set ComputerName "0x339Gungnir"
+  sudo scutil --set HostName "0x339Gungnir"
+  sudo scutil --set LocalHostName "0x339Gungnir"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x339Gungnir"
+
+  # Firewall
+  #
+  # Enable firewall with default options
+  sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+  # Enable stealthmode
+  sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
+
+  # Set standby delay to 24 hours (default is 1 hour)
+  sudo pmset -a standbydelay 86400
+
   # Dock
   #
   # System Preferences > Dock > Automatically hide and show the Dock:
@@ -200,15 +151,6 @@ printf "%s\n# Adjusting macOS...\n%s" $yellow $end
   # Disable the annoying line marks
   defaults write com.apple.Terminal ShowLineMarks -int 0
 
-  # Set computer name (as done via System Preferences → Sharing)
-  sudo scutil --set ComputerName "0x339Gungnir"
-  sudo scutil --set HostName "0x339Gungnir"
-  sudo scutil --set LocalHostName "0x339Gungnir"
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x339Gungnir"
-
-  # Set standby delay to 24 hours (default is 1 hour)
-  sudo pmset -a standbydelay 86400
-
   # Restart Finder and Dock (though many changes need a restart/relog)
   killall Finder
   killall Dock
@@ -218,18 +160,138 @@ printf "%s\n# Adjusting macOS...\n%s" $yellow $end
 printf "%sDone!\n%s" $green $end
 
 #
-# Additional dependencies
+# Software
 #
 
-printf "%s\n# Installing additional dependencies...\n%s" $yellow $end
+printf "%s\n# Installing software...\n%s" $yellow $end
 
-printf "%s\n  Homebrew:\n%s" $yellow $end
+# Install brew
+printf "%s\n  homebrew\n%s" $yellow $end
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-if [[ ! -e "/usr/local/bin/brew" ]]; then
-  {
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  } &> /dev/null
-  printf "%s - Done!\n%s" $green $end
+# Upgrade brew
+printf "%s\n  brew upgrade\n%s" $yellow $end
+brew upgrade
+
+# Install tools
+printf "%s\n  git\n%s" $yellow $end
+brew install git
+export PATH=/usr/local/bin:$PATH
+printf "%s\n  1password\n%s" $yellow $end
+brew cask install 1password
+printf "%s\n  mullvadvpn\n%s" $yellow $end
+brew cask install mullvadvpn
+printf "%s\n  boxcryptor\n%s" $yellow $end
+brew cask install boxcryptor
+printf "%s\n  firefox\n%s" $yellow $end
+brew cask install firefox
+printf "%s\n  bartender\n%s" $yellow $end
+brew cask install bartender
+printf "%s\n  tweetbot\n%s" $yellow $end
+brew cask install tweetbot
+printf "%s\n  signal\n%s" $yellow $end
+brew cask install signal
+printf "%s\n  moneydance\n%s" $yellow $end
+brew cask install moneydance
+printf "%s\n  littlesnitch\n%s" $yellow $end
+brew cask install little-snitch
+printf "%s\n  micro-snitch\n%s" $yellow $end
+brew cask install micro-snitch
+printf "%s\n  textexpander\n%s" $yellow $end
+brew cask install textexpander
+printf "%s\n  sublime-text\n%s" $yellow $end
+brew cask install sublime-text
+printf "%s\n  visual-studio-code\n%s" $yellow $end
+brew cask install visual-studio-code 
+printf "%s\n  figma\n%s" $yellow $end
+brew cask install figma
+printf "%s\n  microsoft-edge\n%s" $yellow $end
+brew cask install microsoft-edge
+printf "%s\n  google-chrome\n%s" $yellow $end
+brew cask install google-chrome
+
+# Remove outdated versions from the cellar.
+printf "%s\n  brew cleanup\n%s" $yellow $end
+brew cleanup
+
+printf "%sDone!\n%s" $green $end
+
+#
+# Copying dotfiles
+#
+
+printf "%s\n# Copying dotfiles...\n%s" $yellow $end
+
+dotfiles=( gitconfig gitignore bash_profile )
+for file in "${dotfiles[@]}"
+do
+  printf "%s  - .$file%s"
+  if [[ ! -e "$HOME/.$file" ]]; then
+    {
+      curl https://raw.githubusercontent.com/mharleydev/config/master/.$file > $HOME/.$file
+    } &> /dev/null
+    printf "%s - Success!\n%s" $green $end
+  else
+    printf "%s - Already present\n%s" $cyan $end
+  fi
+done
+
+#
+# Creating directories
+#
+
+printf "%s\n# Creating directories...\n%s" $yellow $end
+
+printf "%s  - Creating $work_dir...%s"
+if [[ ! -e "$work_dir" ]]; then
+  mkdir $work_dir
+  printf "%s - Success!\n%s" $green $end
 else
-  printf "%s - Already installed\n%s" $cyan $end
+  printf "%s - Already created\n%s" $cyan $end
 fi
+
+printf "%s  - Creating $github_dir...%s"
+if [[ ! -e "$github_dir" ]]; then
+  mkdir $github_dir
+  printf "%s - Success!\n%s" $green $end
+else
+  printf "%s - Already created\n%s" $cyan $end
+fi
+
+
+#
+# Cloning repos
+#
+
+printf "%s\n# Cloning repositories...\n%s" $yellow $end
+
+cd $github_dir
+
+github_repos=( mharley.dev config eleventy-mharleydev )
+for repo in "${github_repos[@]}"
+do
+  printf "%s  - github/$repo%s"
+  if [[ ! -e "$github_dir/$repo" ]]; then
+    {
+      git clone https://github.com/mharleydev/$repo/ $github_dir/$repo/
+    } &> /dev/null
+    printf "%s - Success!\n%s" $green $end
+  else
+    printf "%s - Already cloned\n%s" $cyan $end
+  fi
+done
+
+cd $work_dir
+ado_repos=( SharePoint%20Infrastructure PatchAutomation IDM )
+for repo in "${ado_repos[@]}"
+do
+  printf "%s  - bridgestone/$repo%s"
+  if [[ ! -e "$work_dir/$repo" ]]; then
+    {
+      git clone https://BridgestoneAmericas@dev.azure.com/BridgestoneAmericas/BSAM%20Sharepoint/_git/$repo/ $work_dir/$repo/
+    } &> /dev/null
+    printf "%s - Success!\n%s" $green $end
+  else
+    printf "%s - Already cloned\n%s" $cyan $end
+  fi
+done
