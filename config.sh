@@ -209,6 +209,8 @@ printf "%s\n  microsoft-edge\n%s" $yellow $end
 brew cask install microsoft-edge
 printf "%s\n  google-chrome\n%s" $yellow $end
 brew cask install google-chrome
+printf "%s\n  acorn\n%s" $yellow $end
+brew cask install acorn
 
 # Remove outdated versions from the cellar.
 printf "%s\n  brew cleanup\n%s" $yellow $end
