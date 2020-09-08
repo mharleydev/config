@@ -29,7 +29,6 @@ end=$'\e[0m'
 #
 
 bin_dir="/usr/local/bin"
-work_dir="$HOME/bridgestone/"
 github_dir="$HOME/github/"
 
 printf "%s\n======================================================================\n%s" $yellow $end
@@ -276,21 +275,6 @@ do
   if [[ ! -e "$github_dir/$repo" ]]; then
     {
       git clone https://github.com/mharleydev/$repo/ $github_dir/$repo/
-    } &> /dev/null
-    printf "%s - Success!\n%s" $green $end
-  else
-    printf "%s - Already cloned\n%s" $cyan $end
-  fi
-done
-
-cd $work_dir
-ado_repos=( SharePoint%20Infrastructure PatchAutomation IDM )
-for repo in "${ado_repos[@]}"
-do
-  printf "%s  - bridgestone/$repo%s"
-  if [[ ! -e "$work_dir/$repo" ]]; then
-    {
-      git clone https://BridgestoneAmericas@dev.azure.com/BridgestoneAmericas/BSAM%20Sharepoint/_git/$repo/ $work_dir/$repo/
     } &> /dev/null
     printf "%s - Success!\n%s" $green $end
   else
