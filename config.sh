@@ -210,6 +210,8 @@ printf "%s\n  google-chrome\n%s" $yellow $end
 brew cask install google-chrome
 printf "%s\n  acorn\n%s" $yellow $end
 brew cask install acorn
+printf "%s\n  typora\n%s" $yellow $end
+brew cask install typora
 
 # Remove outdated versions from the cellar.
 printf "%s\n  brew cleanup\n%s" $yellow $end
