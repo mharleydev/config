@@ -212,6 +212,8 @@ printf "%s\n  acorn\n%s" $yellow $end
 brew cask install acorn
 printf "%s\n  typora\n%s" $yellow $end
 brew cask install typora
+printf "%s\n  typora\n%s" $yellow $end
+brew cask install imageoptim
 
 # Remove outdated versions from the cellar.
 printf "%s\n  brew cleanup\n%s" $yellow $end
