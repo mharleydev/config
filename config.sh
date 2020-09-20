@@ -214,6 +214,8 @@ printf "%s\n  typora\n%s" $yellow $end
 brew cask install typora
 printf "%s\n  typora\n%s" $yellow $end
 brew cask install imageoptim
+printf "%s\n  spotify\n%s" $yellow $end
+brew cask install spotify
 
 # Remove outdated versions from the cellar.
 printf "%s\n  brew cleanup\n%s" $yellow $end
