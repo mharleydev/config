@@ -180,8 +180,10 @@ printf "%s\n  1password\n%s" $yellow $end
 brew cask install 1password
 printf "%s\n  mullvadvpn\n%s" $yellow $end
 brew cask install mullvadvpn
-printf "%s\n  boxcryptor\n%s" $yellow $end
-brew cask install boxcryptor
+printf "%s\n  cryptomator\n%s" $yellow $end
+brew cask install cryptomator
+printf "%s\n  dropbox\n%s" $yellow $end
+brew cask install dropbox
 printf "%s\n  firefox\n%s" $yellow $end
 brew cask install firefox
 printf "%s\n  bartender\n%s" $yellow $end
@@ -216,6 +218,9 @@ printf "%s\n  typora\n%s" $yellow $end
 brew cask install imageoptim
 printf "%s\n  spotify\n%s" $yellow $end
 brew cask install spotify
+printf "%s\n  blockblock\n%s" $yellow $end
+brew cask install blockblock
+
 
 # Remove outdated versions from the cellar.
 printf "%s\n  brew cleanup\n%s" $yellow $end
