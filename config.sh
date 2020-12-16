@@ -180,8 +180,8 @@ printf "%s\n  1password\n%s" $yellow $end
 brew cask install 1password
 printf "%s\n  mullvadvpn\n%s" $yellow $end
 brew cask install mullvadvpn
-printf "%s\n  cryptomator\n%s" $yellow $end
-brew cask install cryptomator
+printf "%s\n  boxcryptor\n%s" $yellow $end
+brew cask install boxcryptor
 printf "%s\n  dropbox\n%s" $yellow $end
 brew cask install dropbox
 printf "%s\n  firefox\n%s" $yellow $end
@@ -206,20 +206,18 @@ printf "%s\n  visual-studio-code\n%s" $yellow $end
 brew cask install visual-studio-code 
 printf "%s\n  figma\n%s" $yellow $end
 brew cask install figma
-printf "%s\n  microsoft-edge\n%s" $yellow $end
-brew cask install microsoft-edge
-printf "%s\n  google-chrome\n%s" $yellow $end
-brew cask install google-chrome
 printf "%s\n  acorn\n%s" $yellow $end
 brew cask install acorn
 printf "%s\n  typora\n%s" $yellow $end
 brew cask install typora
-printf "%s\n  typora\n%s" $yellow $end
+printf "%s\n  imageoptim\n%s" $yellow $end
 brew cask install imageoptim
 printf "%s\n  spotify\n%s" $yellow $end
 brew cask install spotify
 printf "%s\n  blockblock\n%s" $yellow $end
 brew cask install blockblock
+printf "%s\n  joplin\n%s" $yellow $end
+brew cask install joplin
 
 
 # Remove outdated versions from the cellar.
