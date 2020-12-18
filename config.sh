@@ -218,6 +218,8 @@ printf "%s\n  blockblock\n%s" $yellow $end
 brew cask install blockblock
 printf "%s\n  joplin\n%s" $yellow $end
 brew cask install joplin
+printf "%s\n  flickr-uploadr\n%s" $yellow $end
+brew cask install flickr-uploadr
 
 
 # Remove outdated versions from the cellar.
