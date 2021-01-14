@@ -177,49 +177,43 @@ printf "%s\n  git\n%s" $yellow $end
 brew install git
 export PATH=/usr/local/bin:$PATH
 printf "%s\n  1password\n%s" $yellow $end
-brew cask install 1password
+brew install --cask 1password
 printf "%s\n  mullvadvpn\n%s" $yellow $end
-brew cask install mullvadvpn
-printf "%s\n  boxcryptor\n%s" $yellow $end
-brew cask install boxcryptor
-printf "%s\n  dropbox\n%s" $yellow $end
-brew cask install dropbox
+brew install --cask mullvadvpn
 printf "%s\n  firefox\n%s" $yellow $end
-brew cask install firefox
+brew install --cask firefox
 printf "%s\n  bartender\n%s" $yellow $end
-brew cask install bartender
+brew install --cask bartender
 printf "%s\n  tweetbot\n%s" $yellow $end
-brew cask install tweetbot
+brew install --cask tweetbot
 printf "%s\n  signal\n%s" $yellow $end
-brew cask install signal
+brew install --cask signal
 printf "%s\n  moneydance\n%s" $yellow $end
-brew cask install moneydance
+brew install --cask moneydance
 printf "%s\n  littlesnitch\n%s" $yellow $end
-brew cask install little-snitch
+brew install --cask little-snitch
 printf "%s\n  micro-snitch\n%s" $yellow $end
-brew cask install micro-snitch
+brew install --cask micro-snitch
 printf "%s\n  textexpander\n%s" $yellow $end
-brew cask install textexpander
+brew install --cask textexpander
 printf "%s\n  sublime-text\n%s" $yellow $end
-brew cask install sublime-text
+brew install --cask sublime-text
 printf "%s\n  visual-studio-code\n%s" $yellow $end
-brew cask install visual-studio-code 
-printf "%s\n  figma\n%s" $yellow $end
-brew cask install figma
+brew install --cask visual-studio-code 
 printf "%s\n  acorn\n%s" $yellow $end
-brew cask install acorn
+brew install --cask acorn
 printf "%s\n  typora\n%s" $yellow $end
-brew cask install typora
+brew install --cask typora
 printf "%s\n  imageoptim\n%s" $yellow $end
-brew cask install imageoptim
+brew install --cask imageoptim
 printf "%s\n  spotify\n%s" $yellow $end
-brew cask install spotify
+brew install --cask spotify
 printf "%s\n  blockblock\n%s" $yellow $end
-brew cask install blockblock
+brew install --cask blockblock
 printf "%s\n  joplin\n%s" $yellow $end
-brew cask install joplin
+brew install --cask joplin
 printf "%s\n  backblaze\n%s" $yellow $end
-brew cask install backblaze
+brew install --cask backblaze
 
 # Remove outdated versions from the cellar.
 printf "%s\n  brew cleanup\n%s" $yellow $end
