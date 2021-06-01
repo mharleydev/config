@@ -188,8 +188,6 @@ printf "%s\n  tweetbot\n%s" $yellow $end
 brew install --cask tweetbot
 printf "%s\n  signal\n%s" $yellow $end
 brew install --cask signal
-printf "%s\n  moneydance\n%s" $yellow $end
-brew install --cask moneydance
 printf "%s\n  littlesnitch\n%s" $yellow $end
 brew install --cask little-snitch
 printf "%s\n  micro-snitch\n%s" $yellow $end
