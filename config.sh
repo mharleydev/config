@@ -194,24 +194,14 @@ printf "%s\n  littlesnitch\n%s" $yellow $end
 brew install --cask little-snitch
 printf "%s\n  micro-snitch\n%s" $yellow $end
 brew install --cask micro-snitch
-printf "%s\n  textexpander\n%s" $yellow $end
-brew install --cask textexpander
-printf "%s\n  sublime-text\n%s" $yellow $end
-brew install --cask sublime-text
 printf "%s\n  visual-studio-code\n%s" $yellow $end
 brew install --cask visual-studio-code 
 printf "%s\n  acorn\n%s" $yellow $end
 brew install --cask acorn
-printf "%s\n  typora\n%s" $yellow $end
-brew install --cask typora
 printf "%s\n  imageoptim\n%s" $yellow $end
 brew install --cask imageoptim
-printf "%s\n  spotify\n%s" $yellow $end
-brew install --cask spotify
 printf "%s\n  blockblock\n%s" $yellow $end
 brew install --cask blockblock
-printf "%s\n  joplin\n%s" $yellow $end
-brew install --cask joplin
 printf "%s\n  backblaze\n%s" $yellow $end
 brew install --cask backblaze
 
@@ -238,50 +228,5 @@ do
     printf "%s - Success!\n%s" $green $end
   else
     printf "%s - Already present\n%s" $cyan $end
-  fi
-done
-
-#
-# Creating directories
-#
-
-printf "%s\n# Creating directories...\n%s" $yellow $end
-
-printf "%s  - Creating $work_dir...%s"
-if [[ ! -e "$work_dir" ]]; then
-  mkdir $work_dir
-  printf "%s - Success!\n%s" $green $end
-else
-  printf "%s - Already created\n%s" $cyan $end
-fi
-
-printf "%s  - Creating $github_dir...%s"
-if [[ ! -e "$github_dir" ]]; then
-  mkdir $github_dir
-  printf "%s - Success!\n%s" $green $end
-else
-  printf "%s - Already created\n%s" $cyan $end
-fi
-
-
-#
-# Cloning repos
-#
-
-printf "%s\n# Cloning repositories...\n%s" $yellow $end
-
-cd $github_dir
-
-github_repos=( mharley.dev config eleventy-mharleydev )
-for repo in "${github_repos[@]}"
-do
-  printf "%s  - github/$repo%s"
-  if [[ ! -e "$github_dir/$repo" ]]; then
-    {
-      git clone https://github.com/mharleydev/$repo/ $github_dir/$repo/
-    } &> /dev/null
-    printf "%s - Success!\n%s" $green $end
-  else
-    printf "%s - Already cloned\n%s" $cyan $end
   fi
 done
